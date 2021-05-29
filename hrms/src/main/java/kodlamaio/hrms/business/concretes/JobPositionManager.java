@@ -14,17 +14,10 @@ public class JobPositionManager implements JobPositionService {
 	
 	private JobPositionDao positionDao;
 	
-	
-	
-	
-
 	public JobPositionManager(JobPositionDao positionDao) {
 		super();
 		this.positionDao = positionDao;
 	}
-
-
-
 
 
 	@Override
