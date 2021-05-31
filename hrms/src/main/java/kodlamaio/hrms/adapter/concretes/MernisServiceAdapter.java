@@ -15,7 +15,7 @@ public class MernisServiceAdapter implements CheckService {
 		KPSPublicSoapProxy client = new KPSPublicSoapProxy();
 		boolean result = true;
 		
-		LocalDate birthDate = LocalDate.parse((CharSequence) jobSeeker.getDateOfBirth());
+		LocalDate birthDate = jobSeeker.getDateOfBirth();
 		 int year = birthDate.getYear();
 		
 		try {
