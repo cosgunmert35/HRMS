@@ -1,9 +1,8 @@
 package kodlamaio.hrms.api.controller;
 
-
-
 import java.util.List;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +14,7 @@ import kodlamaio.hrms.core.utilities.results.Result;
 import kodlamaio.hrms.entities.concretes.JobPosition;
 
 @RestController
-@RequestMapping("/api/jobPositions")
+@RequestMapping(value = "/api/jobPositions")
 public class JobPositionsController {
 	
 	private JobPositionService service;
@@ -26,13 +25,13 @@ public class JobPositionsController {
 	}
 	
 	
-	@RequestMapping("/getAll")
+	@GetMapping(value = "/getAll")
 	public DataResult<List<JobPosition>> getAll() {
 		return this.service.getAll();
 	}
 	
 	
-	 @PostMapping("/add") 
+	 @PostMapping(value = "/add") 
 	 public Result add(@RequestBody JobPosition position) {
 		 return this.service.add(position);
 	 
