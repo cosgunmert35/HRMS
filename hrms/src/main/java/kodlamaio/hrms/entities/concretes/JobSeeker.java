@@ -4,24 +4,28 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 
-@Entity
+
 @Data
-@Table(name = "job_seekers")
 @NoArgsConstructor
 @AllArgsConstructor
-public class JobSeeker {
-	
-	@Id
-	@Column(name = "user_id")
-	private int userId;
+@EqualsAndHashCode(callSuper = true)
+
+@Entity
+@Table(name = "job_seekers")
+@PrimaryKeyJoinColumn(name = "id")
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobAdvertisements"})
+public class JobSeeker extends User {
 	
 	@Column(name = "first_name")
 	private String firstName;
@@ -32,7 +36,7 @@ public class JobSeeker {
 	@Column(name = "date_of_birth")
 	private LocalDate dateOfBirth;
 	
-	@Column(name = "nationalty_id")
+	@Column(name = "nationality_id")
 	private String nationalityId;
-
+	
 }
