@@ -31,8 +31,8 @@ public class JobPosition {
 	@Column(name = "id")
 	private int id;
 	
-	@Column(name = "name")
-	private String name;
+	@Column(name = "position_name")
+	private String positionName;
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "jobPosition")
