@@ -56,9 +56,14 @@ public class JobAdvertisementsController {
 	}
 	
 	@GetMapping("/findByIsActiveAndEmployer_CompanyName")
-	public DataResult<List<JobAdvertisement>> findByIsActiveAndEmployer_CompanyName(@RequestParam boolean isActive,
-			@RequestParam String companyName) {
+	public DataResult<List<JobAdvertisement>> findByIsActiveAndEmployer_CompanyName(@RequestParam("isActive") boolean isActive,
+			@RequestParam("companyName") String companyName) {
 		return this.advertisementService.findByIsActiveAndEmployer_CompanyName(isActive, companyName);
+	}
+	
+	@GetMapping("/findByJobAdvertisementsDto")
+	public DataResult<List<JobAdvertisement>> findByJobAdvertisementsDto() {
+		return this.advertisementService.findByJobAdvertisementsDto();
 	}
 	
 	

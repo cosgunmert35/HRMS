@@ -68,6 +68,12 @@ public class JobAdvertisementManager implements JobAdvertisementService {
 				"İşverene ait aktif ilanlar getirildi.");
 	}
 
+	@Override
+	public DataResult<List<JobAdvertisement>> findByJobAdvertisementsDto() {
+		return new SuccessDataResult<List<JobAdvertisement>>(this.advertisementDao.findByJobAdvertisementsDto(),
+				"Dto ile listelendi.");
+	}
+
 	
 
 

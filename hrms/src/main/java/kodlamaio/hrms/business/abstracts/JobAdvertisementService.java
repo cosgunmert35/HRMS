@@ -22,6 +22,8 @@ public interface JobAdvertisementService {
 	
 	DataResult<List<JobAdvertisement>> findByIsActiveCreateDateOrderByDESC();
 	
+	DataResult<List<JobAdvertisement>> findByJobAdvertisementsDto();
+	
 	
 
 }
