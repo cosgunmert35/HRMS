@@ -2,6 +2,7 @@ package kodlamaio.hrms.business.concretes;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kodlamaio.hrms.business.abstracts.SummaryService;
@@ -17,6 +18,7 @@ public class SummaryManager implements SummaryService {
 	
 	private SummaryDao dao;
 
+	@Autowired
 	public SummaryManager(SummaryDao dao) {
 		super();
 		this.dao = dao;
