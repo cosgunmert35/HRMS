@@ -31,11 +31,9 @@ public class JobAdvertisement {
 	@Column(name = "id")
 	private int id;
 	
-	
 	@ManyToOne
 	@JoinColumn(name = "employer_id")
 	private Employer employer;
-	
 	
 	@ManyToOne
 	@JoinColumn(name = "job_position_id")

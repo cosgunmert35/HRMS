@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -23,8 +24,8 @@ public class Photo {
 	@Column(name = "id")
 	private int id;
 	
-	@Column(name = "job_seeker_id")
-	private int jobSeekerId;
+	@ManyToOne
+	private JobSeeker jobSeeker;
 	
 	@Column(name = "photo_path")
 	private String photoPath;
