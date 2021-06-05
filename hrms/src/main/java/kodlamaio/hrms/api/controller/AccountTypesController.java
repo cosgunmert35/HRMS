@@ -29,7 +29,7 @@ public class AccountTypesController {
 		return this.accountTypeService.add(accountType);
 	}
 	
-	@GetMapping("/getAll")
+	@GetMapping(value = "/getAll")
 	public DataResult<List<AccountType>> getAll() {
 		return this.accountTypeService.getAll();
 	}
