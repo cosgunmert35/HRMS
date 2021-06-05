@@ -2,6 +2,7 @@ package kodlamaio.hrms.business.concretes;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kodlamaio.hrms.business.abstracts.PhotoService;
@@ -17,6 +18,7 @@ public class PhotoManager implements PhotoService {
 	
 	private PhotoDao photoDao;
 	
+	@Autowired
 	public PhotoManager(PhotoDao photoDao) {
 		super();
 		this.photoDao = photoDao;
