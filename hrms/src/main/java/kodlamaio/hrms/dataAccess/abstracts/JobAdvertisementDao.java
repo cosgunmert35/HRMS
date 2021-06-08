@@ -26,11 +26,22 @@ public interface JobAdvertisementDao extends JpaRepository<JobAdvertisement, Int
 	
 	//package kodlamaio.hrms.entities.dtos
 	
+	/*
+	@Query(value = "SELECT new kodlamaio.hrms.entities.dtos.JobAdvertisementDto"
+			+ "(ja.id, e.companyName, jp.positionName, ja.quota, ja.createDate, ja.expireDate) "
+			+ "FROM Employer e INNER JOIN JobAdvertisement ja ON 
+			e.jobAdvertisements = ja.employer "
+			+ "INNER JOIN JobPosition jp ON jp.advertisements = ja.jobPosition",
+			nativeQuery = true)*/
 	
-	@Query(value = "SELECT new kodlamaio.hrms.entities.dtos.JobAdvertisementDto(ja.id, e.companyName, jp.positionName, ja.quota, ja.createDate, ja.expireDate) "
-			+ "FROM Employer e INNER JOIN JobAdvertisement ja ON e.jobAdvertisements = ja.employer INNER JOIN JobPosition jp ON jp.advertisements = ja.jobPosition",
-			nativeQuery = true)
+	@Query("SELECT new kodlamaio.hrms.entities.dtos.JobAdvertisementDto"
+			+ "(ja.id, e.companyName, jp.positionName, ja.quota, ja.createDate, ja.expireDate)"
+			+ "FROM JobAdvertisement ja INNER JOIN ja.employer e INNER JOIN ja.jobPosition jp")
 	List<JobAdvertisement> findByJobAdvertisementsDto();
 	
+	/*@Query("Select k.id, j.id, l.languageName 
+	 * From KnownLanguage k Inner Join k.jobSeeker j 
+	 * Inner join k.language l 
+	 * Where j.id=:jobSeekerId")*/
 	
 }
