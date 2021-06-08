@@ -1,5 +1,7 @@
 package kodlamaio.hrms.business.concretes;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,8 +32,8 @@ public class KnownLanguageManager implements KnownLanguageService {
 	}
 
 	@Override
-	public DataResult<KnownLanguage> getByJobSeeker(int jobSeekerId) {
-		return new SuccessDataResult<KnownLanguage>(this.knownLanguageDao.findByJobSeeker(jobSeekerId), "Başarıyla getirildi.");
+	public DataResult<List<KnownLanguage>> getByJobSeeker(int jobSeekerId) {
+		return new SuccessDataResult<List<KnownLanguage>>(this.knownLanguageDao.findByJobSeeker(jobSeekerId), "Başarıyla getirildi.");
 	}
 
 	@Override

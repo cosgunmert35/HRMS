@@ -1,5 +1,7 @@
 package kodlamaio.hrms.dataAccess.abstracts;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -11,7 +13,7 @@ public interface KnownLanguageDao extends JpaRepository<KnownLanguage, Integer> 
 	@Query("Select k.id, j.id, l.languageName "
 			+ "From KnownLanguage k Inner Join k.jobSeeker j "
 			+ "Inner join k.language l Where j.id=:jobSeekerId")
-	KnownLanguage findByJobSeeker(int jobSeekerId);
+	List<KnownLanguage> findByJobSeeker(int jobSeekerId);
 	
 	/*
 	 * SELECT kl.id, kl.job_seeker_id, js.first_name, kl.language_id, l.language_name,kl.experiance FROM job_seekers js 

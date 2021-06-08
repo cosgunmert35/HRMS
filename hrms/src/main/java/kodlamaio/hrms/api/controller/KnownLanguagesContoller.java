@@ -1,5 +1,7 @@
 package kodlamaio.hrms.api.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,7 +35,7 @@ public class KnownLanguagesContoller {
 	}
 		
 	@GetMapping(value = "/getByJobSeeker")
-	public DataResult<KnownLanguage> getByJobSeeker(@RequestParam int jobSeekerId) {
+	public DataResult<List<KnownLanguage>> getByJobSeeker(@RequestParam int jobSeekerId) {
 		return knownLanguageService.getByJobSeeker(jobSeekerId);
 	}
 	
