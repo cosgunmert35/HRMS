@@ -1,5 +1,7 @@
 package kodlamaio.hrms.api.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,7 +34,7 @@ public class WorkExperiancesController {
 	}
 	
 	@GetMapping(value = "/getAll")
-	DataResult<WorkExperiance> getByJobSeeker(@RequestParam int jobSeekerId) {
+	DataResult<List<WorkExperiance>> getByJobSeeker(@RequestParam int jobSeekerId) {
 		return this.experianceService.getByJobSeeker(jobSeekerId);
 	}
 	

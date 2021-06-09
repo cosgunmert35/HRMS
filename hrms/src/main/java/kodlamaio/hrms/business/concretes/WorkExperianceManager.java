@@ -1,5 +1,7 @@
 package kodlamaio.hrms.business.concretes;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,8 +31,8 @@ public class WorkExperianceManager implements WorkExperianceService {
 	}
 
 	@Override
-	public DataResult<WorkExperiance> getByJobSeeker(int jobSeekerId) {
-		return new SuccessDataResult<WorkExperiance>(this.workExperianceDao.getByJobSeeker(jobSeekerId)); 
+	public DataResult<List<WorkExperiance>> getByJobSeeker(int jobSeekerId) {
+		return new SuccessDataResult<List<WorkExperiance>>(this.workExperianceDao.getByJobSeeker(jobSeekerId)); 
 	}
 	
 	@Override
