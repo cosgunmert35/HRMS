@@ -31,8 +31,8 @@ public class WorkExperianceManager implements WorkExperianceService {
 	}
 
 	@Override
-	public DataResult<List<WorkExperiance>> getByJobSeeker(int jobSeekerId) {
-		return new SuccessDataResult<List<WorkExperiance>>(this.workExperianceDao.getByJobSeeker(jobSeekerId)); 
+	public DataResult<List<WorkExperiance>> findByJobSeeker(int jobSeekerId) {
+		return new SuccessDataResult<List<WorkExperiance>>(this.workExperianceDao.findByJobSeeker(jobSeekerId)); 
 	}
 	
 	@Override

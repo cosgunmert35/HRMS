@@ -10,7 +10,7 @@ public interface WorkExperianceService {
 	
 	Result add(WorkExperiance workExperiance);
 	
-	DataResult<List<WorkExperiance>> getByJobSeeker(int jobSeekerId);
+	DataResult<List<WorkExperiance>> findByJobSeeker(int jobSeekerId);
 	
 	// DataResult<List<WorkExperiance>> getAll();
 	

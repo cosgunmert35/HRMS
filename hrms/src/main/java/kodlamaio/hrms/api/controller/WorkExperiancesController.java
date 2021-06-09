@@ -34,8 +34,8 @@ public class WorkExperiancesController {
 	}
 	
 	@GetMapping(value = "/getAll")
-	DataResult<List<WorkExperiance>> getByJobSeeker(@RequestParam int jobSeekerId) {
-		return this.experianceService.getByJobSeeker(jobSeekerId);
+	DataResult<List<WorkExperiance>> findByJobSeeker(@RequestParam int jobSeekerId) {
+		return this.experianceService.findByJobSeeker(jobSeekerId);
 	}
 	
 	@DeleteMapping("/delete")

@@ -12,7 +12,7 @@ public interface WorkExperianceDao extends JpaRepository<WorkExperiance, Integer
 	@Query("Select w.id, j.id, p.id, p.positionName, w.workplaceName "
 			+ "From WorkExperiance w Inner Join w.jobSeeker j "
 			+ "Inner join w.jobPosition p Where j.id=:jobSeekerId")
-	List<WorkExperiance> getByJobSeeker(int jobSeekerId);
+	List<WorkExperiance> findByJobSeeker(int jobSeekerId);
 	
 	
 }
