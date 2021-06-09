@@ -12,7 +12,7 @@ public interface WorkExperianceService {
 	
 	DataResult<List<WorkExperiance>> findByJobSeeker(int jobSeekerId);
 	
-	// DataResult<List<WorkExperiance>> getAll();
+	DataResult<List<WorkExperiance>> findByJobSeekerAndLeaveDateOrderBy(int jobSeekerId);
 	
 	Result delete(int id);
 

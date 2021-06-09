@@ -36,10 +36,17 @@ public class WorkExperianceManager implements WorkExperianceService {
 	}
 	
 	@Override
+	public DataResult<List<WorkExperiance>> findByJobSeekerAndLeaveDateOrderBy(int jobSeekerId) {
+		return new SuccessDataResult<List<WorkExperiance>>(this.workExperianceDao.findByJobSeekerAndLeaveDateOrderBy(jobSeekerId));
+	}
+	
+	@Override
 	public Result delete(int id) {
 		this.workExperianceDao.deleteById(id);
 		return new SuccessResult("Başarıyla silindi.");
 	}
+
+	
 
 	
 

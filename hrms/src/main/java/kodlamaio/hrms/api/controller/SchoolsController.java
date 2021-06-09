@@ -35,5 +35,10 @@ public class SchoolsController {
 	public DataResult<List<School>> getAll() {
 		return this.schoolService.getAll();
 	}
+	
+	@GetMapping(value = "/getAllSortedDate")
+	public DataResult<List<School>> getAllSortedDate() {
+		return this.schoolService.getAllSortedDate();
+	}
 
 }
