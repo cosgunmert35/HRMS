@@ -51,7 +51,7 @@ public class JobSeeker extends User {
 	private List<KnownTechnology> knownTechnologies;
 	
 	@JsonIgnore
-	@OneToMany
+	@OneToMany(mappedBy = "jobSeeker")
 	private List<LinkedAccount> linkedAccounts;
 	
 	@JsonIgnore
@@ -69,6 +69,10 @@ public class JobSeeker extends User {
 	@JsonIgnore
 	@OneToMany(mappedBy = "jobSeeker")
 	private List<Photo> photos;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "jobSeeker")
+	private List<Resume> resumes;
 	
 	
 }

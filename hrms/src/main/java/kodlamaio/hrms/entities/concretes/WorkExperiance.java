@@ -43,4 +43,7 @@ public class WorkExperiance {
 	
 	@Column(name = "is_active")
 	private boolean isActive;
+	
+	@ManyToOne
+	private Resume resume;
 }

@@ -33,4 +33,7 @@ public class LinkedAccount {
 	
 	@Column(name = "address")
 	private String address;
+	
+	@ManyToOne
+	private Resume resume;
 }

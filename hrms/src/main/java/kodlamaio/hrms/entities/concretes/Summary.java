@@ -31,4 +31,7 @@ public class Summary {
 	@Column(name = "summary")
 	private String summary;
 	
+	@ManyToOne
+	private Resume resume;
+	
 }

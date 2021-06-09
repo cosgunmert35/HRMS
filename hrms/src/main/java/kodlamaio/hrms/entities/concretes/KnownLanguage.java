@@ -31,7 +31,10 @@ public class KnownLanguage {
 	@ManyToOne
 	private Language language;
 	
-	@Column(name = "experiance")
+	@Column(name = "experience")
 	private int experience;
+	
+	@ManyToOne
+	private Resume resume;
 
 }

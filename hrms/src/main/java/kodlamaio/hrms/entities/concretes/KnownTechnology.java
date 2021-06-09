@@ -30,5 +30,8 @@ public class KnownTechnology {
 	
 	@ManyToOne
 	private Technology technology;
+	
+	@ManyToOne
+	private Resume resume;
 
 }
