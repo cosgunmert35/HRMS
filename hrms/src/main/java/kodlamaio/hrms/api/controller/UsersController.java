@@ -14,19 +14,18 @@ import kodlamaio.hrms.entities.concretes.User;
 @RestController
 @RequestMapping(value = "/api/users")
 public class UsersController {
-	
+
 	private UserService service;
-	
+
 	@Autowired
 	public UsersController(UserService service) {
 		super();
 		this.service = service;
 	}
-	
+
 	@GetMapping(value = "/getAll")
 	public DataResult<List<User>> getAll() {
 		return this.service.getAll();
 	}
-	
 
 }

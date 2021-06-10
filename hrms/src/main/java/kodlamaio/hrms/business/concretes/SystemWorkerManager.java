@@ -14,10 +14,10 @@ import kodlamaio.hrms.dataAccess.abstracts.SystemWorkerDao;
 import kodlamaio.hrms.entities.concretes.SystemWorker;
 
 @Service
-public class SystemWorkerManager implements SystemWorkerService{
-	
+public class SystemWorkerManager implements SystemWorkerService {
+
 	private SystemWorkerDao workerDao;
-	
+
 	@Autowired
 	public SystemWorkerManager(SystemWorkerDao workerDao) {
 		super();
@@ -39,7 +39,5 @@ public class SystemWorkerManager implements SystemWorkerService{
 	public DataResult<List<SystemWorker>> getAll() {
 		return new SuccessDataResult<List<SystemWorker>>(this.workerDao.findAll());
 	}
-	
-	
 
 }

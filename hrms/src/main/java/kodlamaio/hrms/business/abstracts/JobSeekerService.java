@@ -6,7 +6,7 @@ import kodlamaio.hrms.core.utilities.results.DataResult;
 import kodlamaio.hrms.entities.concretes.JobSeeker;
 
 public interface JobSeekerService {
-	
+
 	DataResult<List<JobSeeker>> getAll();
 
 }

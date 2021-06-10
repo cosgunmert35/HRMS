@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class KnownLanguageDto {
-	
+
 	private int id;
 	private int jobSeekerId;
 	private String languageName;

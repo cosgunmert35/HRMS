@@ -15,10 +15,9 @@ import kodlamaio.hrms.entities.concretes.JobAdvertisement;
 
 @Service
 public class JobAdvertisementManager implements JobAdvertisementService {
-	
+
 	private JobAdvertisementDao advertisementDao;
-	
-	
+
 	@Autowired
 	public JobAdvertisementManager(JobAdvertisementDao advertisementDao) {
 		super();
@@ -30,41 +29,38 @@ public class JobAdvertisementManager implements JobAdvertisementService {
 		this.advertisementDao.save(advertisement);
 		return new SuccessResult("İş ilanı başarıyla eklendi.");
 	}
-	
 
 	@Override
 	public Result updateIsActiveStatus(int id, boolean isActive) {
 		this.advertisementDao.updateIsActiveStatus(id, isActive);
 		return new SuccessResult("İş ilanı aktiflik durumu güncellendi.");
 	}
-	
+
 	@Override
 	public DataResult<List<JobAdvertisement>> getAll() {
-		return new SuccessDataResult<List<JobAdvertisement>>(
-				this.advertisementDao.findAll(),
-				"İş ilanları getirildi.");
+		return new SuccessDataResult<List<JobAdvertisement>>(this.advertisementDao.findAll(), "İş ilanları getirildi.");
 	}
 
 	@Override
 	public DataResult<List<JobAdvertisement>> findByIsActive(boolean isActive) {
-		return new SuccessDataResult<List<JobAdvertisement>>(
-				this.advertisementDao.findByIsActive(isActive),
+		return new SuccessDataResult<List<JobAdvertisement>>(this.advertisementDao.findByIsActive(isActive),
 				"Aktif iş ilanları getirildi.");
 	}
 
 	@Override
 	public DataResult<List<JobAdvertisement>> findByIsActiveCreateDateOrderByDESC() {
-		
+
 		return new SuccessDataResult<List<JobAdvertisement>>(
 				this.advertisementDao.findByIsActiveCreateDateOrderByDESC(),
 				"Tarihe göre sıralanmış aktif iş ilanları.");
 	}
 
 	@Override
-	public DataResult<List<JobAdvertisement>> findByIsActiveAndEmployer_CompanyName(boolean isActive, String companyName) {
-		
+	public DataResult<List<JobAdvertisement>> findByIsActiveAndEmployer_CompanyName(boolean isActive,
+			String companyName) {
+
 		return new SuccessDataResult<List<JobAdvertisement>>(
-				this.advertisementDao.findByIsActiveAndEmployer_CompanyName(isActive, companyName), 
+				this.advertisementDao.findByIsActiveAndEmployer_CompanyName(isActive, companyName),
 				"İşverene ait aktif ilanlar getirildi.");
 	}
 
@@ -73,17 +69,5 @@ public class JobAdvertisementManager implements JobAdvertisementService {
 		return new SuccessDataResult<List<JobAdvertisement>>(this.advertisementDao.findByJobAdvertisementsDto(),
 				"Dto ile listelendi.");
 	}
-
-	
-
-
-
-
-	
-
-
-
-	
-
 
 }

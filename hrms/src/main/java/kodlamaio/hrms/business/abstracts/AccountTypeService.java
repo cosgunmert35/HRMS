@@ -7,11 +7,9 @@ import kodlamaio.hrms.core.utilities.results.Result;
 import kodlamaio.hrms.entities.concretes.AccountType;
 
 public interface AccountTypeService {
-	
+
 	Result add(AccountType accountType);
-	
+
 	DataResult<List<AccountType>> getAll();
-	
-	
 
 }

@@ -17,7 +17,7 @@ import kodlamaio.hrms.entities.concretes.Language;
 public class LanguageManager implements LanguageService {
 
 	private LanguageDao languageDao;
-	
+
 	@Autowired
 	public LanguageManager(LanguageDao languageDao) {
 		super();

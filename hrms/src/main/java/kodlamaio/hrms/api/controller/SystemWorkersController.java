@@ -18,25 +18,25 @@ import kodlamaio.hrms.entities.concretes.SystemWorker;
 @RestController
 @RequestMapping(value = "/api/systemWorkers")
 public class SystemWorkersController {
-	
+
 	private SystemWorkerService systemWorkerService;
-	
+
 	@Autowired
 	public SystemWorkersController(SystemWorkerService systemWorkerService) {
 		super();
 		this.systemWorkerService = systemWorkerService;
 	}
-	
+
 	@PostMapping(value = "/add")
 	public Result add(@RequestBody SystemWorker systemWorker) {
 		return this.systemWorkerService.add(systemWorker);
 	}
-	
+
 	@GetMapping(value = "/getWorkerWithEmail")
 	public DataResult<SystemWorker> getByEmail(@RequestParam String email) {
 		return this.systemWorkerService.getByEmail(email);
 	}
-	
+
 	@GetMapping(value = "/getAll")
 	public DataResult<List<SystemWorker>> getAll() {
 		return this.systemWorkerService.getAll();

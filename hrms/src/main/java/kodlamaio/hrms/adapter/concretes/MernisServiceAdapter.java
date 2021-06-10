@@ -14,20 +14,20 @@ public class MernisServiceAdapter implements CheckService {
 	public boolean checkIsPerson(JobSeeker jobSeeker) {
 		KPSPublicSoapProxy client = new KPSPublicSoapProxy();
 		boolean result = true;
-		
+
 		LocalDate birthDate = jobSeeker.getDateOfBirth();
-		 int year = birthDate.getYear();
-		
+		int year = birthDate.getYear();
+
 		try {
-			result = client.TCKimlikNoDogrula(Long.parseLong(jobSeeker.getNationalityId()), jobSeeker.getFirstName().toUpperCase(new Locale("tr")),
-												jobSeeker.getLastName().toUpperCase(new Locale("tr")), year);
+			result = client.TCKimlikNoDogrula(Long.parseLong(jobSeeker.getNationalityId()),
+					jobSeeker.getFirstName().toUpperCase(new Locale("tr")),
+					jobSeeker.getLastName().toUpperCase(new Locale("tr")), year);
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
-		
-		
+
 		return result;
 	}
 

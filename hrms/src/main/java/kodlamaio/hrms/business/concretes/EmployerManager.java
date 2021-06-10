@@ -13,9 +13,9 @@ import kodlamaio.hrms.entities.concretes.Employer;
 
 @Service
 public class EmployerManager implements EmployerService {
-	
+
 	private EmployerDao employerDao;
-	
+
 	@Autowired
 	public EmployerManager(EmployerDao employerDao) {
 		super();
@@ -26,6 +26,5 @@ public class EmployerManager implements EmployerService {
 	public DataResult<List<Employer>> getAll() {
 		return new SuccessDataResult<List<Employer>>(this.employerDao.findAll(), "İşverenler listesi getirildi.");
 	}
-	
-	
+
 }

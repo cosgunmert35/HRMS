@@ -17,28 +17,24 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Entity
 @Data
 @Table(name = "job_positions")
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobAdvertisements"})
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler", "jobAdvertisements" })
 public class JobPosition {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
-	
+
 	@Column(name = "position_name")
 	private String positionName;
-	
+
 	@JsonIgnore
 	@OneToMany(mappedBy = "jobPosition")
 	private List<JobAdvertisement> advertisements;
-	
-	@JsonIgnore
-	@OneToMany(mappedBy = "jobPosition")
-	private List<WorkExperiance> workExperiances;
+
 }

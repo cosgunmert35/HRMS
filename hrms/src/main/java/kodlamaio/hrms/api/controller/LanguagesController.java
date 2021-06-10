@@ -17,7 +17,7 @@ import kodlamaio.hrms.entities.concretes.Language;
 @RestController
 @RequestMapping(value = "/api/languages")
 public class LanguagesController {
-	
+
 	private LanguageService languageService;
 
 	@Autowired
@@ -25,12 +25,12 @@ public class LanguagesController {
 		super();
 		this.languageService = languageService;
 	}
-	
+
 	@PostMapping(value = "/add")
 	public Result add(@RequestBody Language language) {
 		return this.languageService.add(language);
 	}
-	
+
 	@GetMapping(value = "/getAll")
 	public DataResult<List<Language>> getAll() {
 		return this.languageService.getAll();

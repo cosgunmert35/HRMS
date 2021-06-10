@@ -17,20 +17,20 @@ import kodlamaio.hrms.entities.concretes.PhoneNumber;
 @RestController
 @RequestMapping(value = "/api/phoneNumbers")
 public class PhoneNumbersController {
-	
+
 	private PhoneNumberService phoneNumberService;
-	
+
 	@Autowired
 	public PhoneNumbersController(PhoneNumberService phoneNumberService) {
 		super();
 		this.phoneNumberService = phoneNumberService;
 	}
-	
+
 	@PostMapping(value = "/add")
 	public Result add(@RequestBody PhoneNumber phoneNumber) {
 		return this.phoneNumberService.add(phoneNumber);
 	}
-	
+
 	@GetMapping(value = "/getAll")
 	public DataResult<List<PhoneNumber>> getAll() {
 		return this.phoneNumberService.getAll();

@@ -11,21 +11,16 @@ import kodlamaio.hrms.core.utilities.results.SuccessDataResult;
 import kodlamaio.hrms.dataAccess.abstracts.JobSeekerDao;
 import kodlamaio.hrms.entities.concretes.JobSeeker;
 
-
 @Service
 public class JobSeekerManager implements JobSeekerService {
-	
-	
+
 	private JobSeekerDao jobSeekerDao;
-	
-	
+
 	@Autowired
 	public JobSeekerManager(JobSeekerDao jobSeekerDao) {
 		super();
 		this.jobSeekerDao = jobSeekerDao;
 	}
-
-
 
 	@Override
 	public DataResult<List<JobSeeker>> getAll() {

@@ -15,26 +15,23 @@ import kodlamaio.hrms.entities.concretes.JobPosition;
 
 @Service
 public class JobPositionManager implements JobPositionService {
-	
-	
+
 	private JobPositionDao positionDao;
-	
+
 	@Autowired
 	public JobPositionManager(JobPositionDao positionDao) {
 		super();
 		this.positionDao = positionDao;
 	}
 
-
 	@Override
 	public DataResult<List<JobPosition>> getAll() {
 		return new SuccessDataResult<List<JobPosition>>(this.positionDao.findAll(), "Veri getirildi.");
 	}
 
-
 	@Override
 	public Result add(JobPosition jobPosition) {
-		
+
 		this.positionDao.save(jobPosition);
 		return new SuccessResult("İş pozisyonu eklendi.");
 	}

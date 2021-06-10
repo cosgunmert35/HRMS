@@ -23,46 +23,45 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobAdvertisements"})
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler", "jobAdvertisements" })
 public class JobAdvertisement {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "employer_id")
 	private Employer employer;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "job_position_id")
 	private JobPosition jobPosition;
-	
+
 	@Column(name = "description")
 	private String description;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "city_id")
 	private City city;
-	
+
 	@Column(name = "minimum_Salary")
 	private int minimumSalary;
-	
+
 	@Column(name = "maximum_salary")
 	private int maximumSalary;
-	
+
 	@Column(name = "quota")
 	private int quota;
-	
+
 	@Column(name = "create_date")
 	private LocalDate createDate;
-	
+
 	@Column(name = "expire_date")
 	private LocalDate expireDate;
-	
+
 	@Column(name = "is_active")
 	private boolean isActive;
-	
-	
+
 }

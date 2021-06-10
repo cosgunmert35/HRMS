@@ -13,13 +13,11 @@ import kodlamaio.hrms.core.utilities.results.SuccessResult;
 import kodlamaio.hrms.dataAccess.abstracts.AccountTypeDao;
 import kodlamaio.hrms.entities.concretes.AccountType;
 
-
 @Service
 public class AccountTypeManager implements AccountTypeService {
-	
+
 	private AccountTypeDao accountTypeDao;
-	
-	
+
 	@Autowired
 	public AccountTypeManager(AccountTypeDao accountTypeDao) {
 		super();
@@ -34,7 +32,8 @@ public class AccountTypeManager implements AccountTypeService {
 
 	@Override
 	public DataResult<List<AccountType>> getAll() {
-		return new SuccessDataResult<List<AccountType>>(this.accountTypeDao.findAll(), "Kullanıcı türleri başarıyla getirildi.");
+		return new SuccessDataResult<List<AccountType>>(this.accountTypeDao.findAll(),
+				"Kullanıcı türleri başarıyla getirildi.");
 	}
 
 }

@@ -6,7 +6,7 @@ import kodlamaio.hrms.core.utilities.results.DataResult;
 import kodlamaio.hrms.entities.concretes.User;
 
 public interface UserService {
-	
+
 	public DataResult<List<User>> getAll();
 
 }

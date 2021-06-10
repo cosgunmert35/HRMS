@@ -14,7 +14,7 @@ import kodlamaio.hrms.entities.concretes.JobSeeker;
 @RestController
 @RequestMapping(value = "/api/jobSeekers")
 public class JobSeekersController {
-	
+
 	private JobSeekerService service;
 
 	@Autowired
@@ -22,7 +22,7 @@ public class JobSeekersController {
 		super();
 		this.service = service;
 	}
-	
+
 	@GetMapping(value = "/getAll")
 	public DataResult<List<JobSeeker>> getAll() {
 		return this.service.getAll();

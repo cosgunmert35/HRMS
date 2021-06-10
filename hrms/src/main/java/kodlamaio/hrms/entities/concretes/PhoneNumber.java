@@ -25,13 +25,12 @@ public class PhoneNumber {
 	@Column(name = "id")
 	private int id;
 	/*
-	@Column(name = "employer_id")
-	private int employerId;
-	*/
-	
+	 * @Column(name = "employer_id") private int employerId;
+	 */
+
 	@ManyToOne
 	private Employer employer;
-	
+
 	@Column(name = "phone_number")
 	private String phoneNumber;
 }

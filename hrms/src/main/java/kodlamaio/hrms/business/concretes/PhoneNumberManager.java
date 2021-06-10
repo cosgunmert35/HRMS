@@ -15,9 +15,9 @@ import kodlamaio.hrms.entities.concretes.PhoneNumber;
 
 @Service
 public class PhoneNumberManager implements PhoneNumberService {
-	
+
 	private PhoneNumberDao phoneNumberDao;
-	
+
 	@Autowired
 	public PhoneNumberManager(PhoneNumberDao phoneNumberDao) {
 		super();
@@ -34,7 +34,5 @@ public class PhoneNumberManager implements PhoneNumberService {
 	public DataResult<List<PhoneNumber>> getAll() {
 		return new SuccessDataResult<List<PhoneNumber>>(this.phoneNumberDao.findAll());
 	}
-	
-	
 
 }

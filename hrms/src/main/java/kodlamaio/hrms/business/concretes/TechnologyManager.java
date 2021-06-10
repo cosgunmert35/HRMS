@@ -15,9 +15,9 @@ import kodlamaio.hrms.entities.concretes.Technology;
 
 @Service
 public class TechnologyManager implements TechnologyService {
-	
+
 	private TechnologyDao dao;
-	
+
 	@Autowired
 	public TechnologyManager(TechnologyDao dao) {
 		super();

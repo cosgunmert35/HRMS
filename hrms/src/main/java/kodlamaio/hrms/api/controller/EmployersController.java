@@ -14,19 +14,18 @@ import kodlamaio.hrms.entities.concretes.Employer;
 @RestController
 @RequestMapping(value = "/api/employers")
 public class EmployersController {
-	
+
 	private EmployerService service;
-	
+
 	@Autowired
 	public EmployersController(EmployerService service) {
 		super();
 		this.service = service;
 	}
-	
+
 	@GetMapping(value = "/getAll")
 	public DataResult<List<Employer>> getAll() {
 		return this.service.getAll();
 	}
-	
 
 }

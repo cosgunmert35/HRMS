@@ -17,7 +17,7 @@ import kodlamaio.hrms.entities.concretes.AccountType;
 @RestController
 @RequestMapping(value = "/api/accountTypes")
 public class AccountTypesController {
-	
+
 	private AccountTypeService accountTypeService;
 
 	@Autowired
@@ -25,12 +25,12 @@ public class AccountTypesController {
 		super();
 		this.accountTypeService = accountTypeService;
 	}
-	
+
 	@PostMapping(value = "/add")
 	public Result add(@RequestBody AccountType accountType) {
 		return this.accountTypeService.add(accountType);
 	}
-	
+
 	@GetMapping(value = "/getAll")
 	public DataResult<List<AccountType>> getAll() {
 		return this.accountTypeService.getAll();

@@ -17,8 +17,6 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -27,52 +25,23 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "job_seekers")
 @PrimaryKeyJoinColumn(name = "id")
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobAdvertisements"})
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler", "jobSeeker"})
 public class JobSeeker extends User {
-	
+
 	@Column(name = "first_name")
 	private String firstName;
-	
+
 	@Column(name = "last_name")
 	private String lastName;
-	
+
 	@Column(name = "date_of_birth")
 	private LocalDate dateOfBirth;
-	
+
 	@Column(name = "nationality_id")
 	private String nationalityId;
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "jobSeeker")
-	private List<KnownLanguage> knownLanguages; 
-	
-	@JsonIgnore
-	@OneToMany(mappedBy = "jobSeeker")
-	private List<KnownTechnology> knownTechnologies;
-	
-	@JsonIgnore
-	@OneToMany(mappedBy = "jobSeeker")
-	private List<LinkedAccount> linkedAccounts;
-	
-	@JsonIgnore
-	@OneToMany(mappedBy = "jobSeeker")
-	private List<WorkExperiance> workExperiances;
-	
-	@JsonIgnore
-	@OneToMany(mappedBy = "jobSeeker")
-	private List<School> schools;
-	
-	@JsonIgnore
-	@OneToMany(mappedBy = "jobSeeker")
-	private List<Summary> summaries;
-	
-	@JsonIgnore
-	@OneToMany(mappedBy = "jobSeeker")
-	private List<Photo> photos;
-	
-	@JsonIgnore
-	@OneToMany(mappedBy = "jobSeeker")
 	private List<Resume> resumes;
-	
-	
+
 }
