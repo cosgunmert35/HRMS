@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 import kodlamaio.hrms.entities.concretes.JobAdvertisement;
+import kodlamaio.hrms.entities.dtos.JobAdvertisementDto;
 
 public interface JobAdvertisementDao extends JpaRepository<JobAdvertisement, Integer> {
 
@@ -37,7 +38,7 @@ public interface JobAdvertisementDao extends JpaRepository<JobAdvertisement, Int
 	@Query("SELECT new kodlamaio.hrms.entities.dtos.JobAdvertisementDto"
 			+ "(ja.id, e.companyName, jp.positionName, ja.quota, ja.createDate, ja.expireDate)"
 			+ "FROM JobAdvertisement ja INNER JOIN ja.employer e INNER JOIN ja.jobPosition jp")
-	List<JobAdvertisement> findByJobAdvertisementsDto();
+	List<JobAdvertisementDto> findByJobAdvertisementsDto();
 
 	/*
 	 * @Query("Select k.id, j.id, l.languageName From KnownLanguage k Inner Join
