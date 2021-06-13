@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -34,12 +35,13 @@ public class Resume {
 	private int id;
 	
 	@ManyToOne
+	@JoinColumn(name = "jobSeeker_id",insertable = false , updatable = false)
 	private JobSeeker jobSeeker;
 	
 	@Column(name = "title")
 	private String title;
 	
-	@Column(name = "create_date")
+	@Column(name = "create_date", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	private LocalDate createDate;
 	
 	@JsonIgnore

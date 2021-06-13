@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -35,6 +37,7 @@ public class AccountType {
 	@Column(name = "type_name")
 	private String typeName;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "accountType")
 	private List<LinkedAccount> linkedAccounts;
 

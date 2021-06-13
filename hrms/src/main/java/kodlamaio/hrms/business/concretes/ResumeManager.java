@@ -12,6 +12,7 @@ import kodlamaio.hrms.core.utilities.results.SuccessDataResult;
 import kodlamaio.hrms.core.utilities.results.SuccessResult;
 import kodlamaio.hrms.dataAccess.abstracts.ResumeDao;
 import kodlamaio.hrms.entities.concretes.Resume;
+import kodlamaio.hrms.entities.dtos.ResumeDto;
 
 @Service
 public class ResumeManager implements ResumeService {
@@ -37,6 +38,17 @@ public class ResumeManager implements ResumeService {
 		return new SuccessDataResult<List<Resume>>(this.resumeDao.findAll());
 	}
 
-	
+
+	@Override
+	public DataResult<List<Resume>> getByJobSeekerId(int id) {
+		return new SuccessDataResult<List<Resume>>(this.resumeDao.getByJobSeekerId(id));
+	}
+
+	/*
+	 * @Override public DataResult<List<ResumeDto>> getByResumeDto() { return new
+	 * SuccessDataResult<List<ResumeDto>>(this.resumeDao.getByResumeDto()); }
+	 * 
+	 */
+
 
 }

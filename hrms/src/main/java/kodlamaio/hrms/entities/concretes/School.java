@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import lombok.AllArgsConstructor;
@@ -29,6 +30,7 @@ public class School {
 	private int id;
 	
 	@ManyToOne
+	@JoinColumn(name = "resume_id", insertable = false, updatable = false)
 	private Resume resume;
 	
 	@Column(name = "school_name")

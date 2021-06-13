@@ -32,18 +32,18 @@ public class JobAdvertisement {
 	private int id;
 
 	@ManyToOne
-	@JoinColumn(name = "employer_id")
+	@JoinColumn(name = "employer_id", insertable = false, updatable = false)
 	private Employer employer;
 
 	@ManyToOne
-	@JoinColumn(name = "job_position_id")
+	@JoinColumn(name = "jobPosition_id", insertable = false, updatable = false)
 	private JobPosition jobPosition;
 
 	@Column(name = "description")
 	private String description;
 
 	@ManyToOne
-	@JoinColumn(name = "city_id")
+	@JoinColumn(name = "city_id", insertable = false, updatable = false)
 	private City city;
 
 	@Column(name = "minimum_Salary")

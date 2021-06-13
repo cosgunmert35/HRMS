@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -25,9 +26,11 @@ public class KnownLanguage {
 	private int id;
 	
 	@ManyToOne
+	@JoinColumn(name = "resume_id", insertable = false, updatable = false)
 	private Resume resume;
 	
 	@ManyToOne
+	@JoinColumn(name = "language_id", insertable = false, updatable = false)
 	private Language language;
 	
 	@Column(name = "experience")
