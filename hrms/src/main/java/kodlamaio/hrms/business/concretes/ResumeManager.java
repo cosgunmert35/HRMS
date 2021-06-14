@@ -44,11 +44,11 @@ public class ResumeManager implements ResumeService {
 		return new SuccessDataResult<List<Resume>>(this.resumeDao.getByJobSeekerId(id));
 	}
 
-	/*
-	 * @Override public DataResult<List<ResumeDto>> getByResumeDto() { return new
-	 * SuccessDataResult<List<ResumeDto>>(this.resumeDao.getByResumeDto()); }
-	 * 
-	 */
+	
+	  @Override public DataResult<List<ResumeDto>> getByResumeDto() { return new
+	  SuccessDataResult<List<ResumeDto>>(this.resumeDao.getByResumeDto()); }
+	  
+	 
 
 
 }

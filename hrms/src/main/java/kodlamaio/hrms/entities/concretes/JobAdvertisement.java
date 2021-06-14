@@ -55,11 +55,12 @@ public class JobAdvertisement {
 	@Column(name = "quota")
 	private int quota;
 
-	@Column(name = "create_date")
+	@Column(name = "create_date", columnDefinition = "DATE")
 	private LocalDate createDate;
-
+	
 	@Column(name = "expire_date")
 	private LocalDate expireDate;
+	
 
 	@Column(name = "is_active")
 	private boolean isActive;

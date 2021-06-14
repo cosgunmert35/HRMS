@@ -43,9 +43,9 @@ public class ResumesController {
 		return this.resumeService.getByJobSeekerId(id);
 	}
 	
-	/*
-	 * @GetMapping("/getByResumeDto") public DataResult<List<ResumeDto>>
-	 * getByResumeDto() { return this.resumeService.getByResumeDto(); }
-	 * 
-	 */
+	
+	  @GetMapping("/getByResumeDto") public DataResult<List<ResumeDto>>
+	  getByResumeDto() { return this.resumeService.getByResumeDto(); }
+	  
+	 
 }
