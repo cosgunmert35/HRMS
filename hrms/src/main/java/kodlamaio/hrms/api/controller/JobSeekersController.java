@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import kodlamaio.hrms.business.abstracts.JobSeekerService;
@@ -25,15 +26,25 @@ public class JobSeekersController {
 		super();
 		this.service = service;
 	}
-
+	@PostMapping(value = "/add")
+	public Result add(@RequestBody JobSeeker jobSeeker) {
+		return this.service.add(jobSeeker);
+	}
+	
+	
 	@GetMapping(value = "/getAll")
 	public DataResult<List<JobSeeker>> getAll() {
 		return this.service.getAll();
 	}
 	
-	@PostMapping(value = "/add")
-	public Result add(@RequestBody JobSeeker jobSeeker) {
-		return this.service.add(jobSeeker);
+	@GetMapping(value = "/getByEmail")
+	public DataResult<JobSeeker> getByEmail(@RequestParam String email) {
+		return this.service.getByEmail(email);
+	}
+	
+	@GetMapping(value = "/getByNationalityId")
+	public DataResult<JobSeeker> getByNationalityId(@RequestParam String nationalityId) {
+		return this.service.getByNationalityId(nationalityId);
 	}
 
 }

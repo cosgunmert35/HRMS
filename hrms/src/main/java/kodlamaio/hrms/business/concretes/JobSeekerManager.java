@@ -35,4 +35,14 @@ public class JobSeekerManager implements JobSeekerService {
 		return new SuccessResult("Kullanıcı başarıyla eklendi.");
 	}
 
+	@Override
+	public DataResult<JobSeeker> getByEmail(String email) {
+		return new SuccessDataResult<JobSeeker>(this.jobSeekerDao.getByEmail(email));
+	}
+
+	@Override
+	public DataResult<JobSeeker> getByNationalityId(String nationalityId) {
+		return new SuccessDataResult<JobSeeker>(this.jobSeekerDao.getByNationalityId(nationalityId));
+	}
+
 }
