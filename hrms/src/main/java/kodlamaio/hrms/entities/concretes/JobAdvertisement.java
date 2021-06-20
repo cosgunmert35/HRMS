@@ -47,10 +47,10 @@ public class JobAdvertisement {
 	private City city;
 
 	@Column(name = "minimum_Salary")
-	private int minimumSalary;
+	private String minimumSalary;
 
 	@Column(name = "maximum_salary")
-	private int maximumSalary;
+	private String maximumSalary;
 
 	@Column(name = "quota")
 	private int quota;
