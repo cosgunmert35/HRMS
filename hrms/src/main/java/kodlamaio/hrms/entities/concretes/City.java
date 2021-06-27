@@ -32,9 +32,9 @@ public class City {
 
 	@Column(name = "name")
 	private String name;
-
+	
 	@JsonIgnore
 	@OneToMany(mappedBy = "city")
-	private List<JobAdvertisement> advertisements;
+	private List<JobAdvertisement> jobAdvertisements;
 
 }

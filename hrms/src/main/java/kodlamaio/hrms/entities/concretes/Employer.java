@@ -2,8 +2,10 @@ package kodlamaio.hrms.entities.concretes;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
@@ -24,7 +26,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "employers")
 @PrimaryKeyJoinColumn(name = "id")
-@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler", "jobAdvertisements" ,"phoneNumbers" })
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler", "jobAdvertisements", "phoneNumbers" })
 public class Employer extends User {
 
 	@Column(name = "company_name")
@@ -32,13 +34,13 @@ public class Employer extends User {
 
 	@Column(name = "web_site")
 	private String webSite;
-
+	
 	@JsonIgnore
-	@OneToMany(mappedBy = "employer")
+	@OneToMany(mappedBy = "employer", targetEntity = JobAdvertisement.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<JobAdvertisement> jobAdvertisements;
 
 	@JsonIgnore
-	@OneToMany(mappedBy = "employer")
+	@OneToMany(mappedBy = "employer", targetEntity = PhoneNumber.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<PhoneNumber> phoneNumbers;
 
 }
