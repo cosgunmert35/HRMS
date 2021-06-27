@@ -26,12 +26,12 @@ public class Photo {
 	@Column(name = "id")
 	private int id;
 	
-	@ManyToOne
-	@JoinColumn(name = "jobSeeker_id", insertable = false, updatable = false)
+	@ManyToOne(targetEntity = JobSeeker.class, optional = false)
+	@JoinColumn(name = "job_seeker_id", nullable = false)
 	private JobSeeker jobSeeker;
 	
 	@ManyToOne
-	@JoinColumn(name = "resume_id", insertable = false, updatable = false)
+	@JoinColumn(name = "resume_id")
 	private Resume resume;
 	
 	@Column(name = "photo_link")
