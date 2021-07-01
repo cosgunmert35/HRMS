@@ -32,7 +32,7 @@ public class JobPosition {
 
 	@Column(name = "position_name")
 	private String positionName;
-
+	
 	@JsonIgnore
 	@OneToMany(mappedBy = "jobPosition")
 	private List<JobAdvertisement> jobAdvertisements;
