@@ -1,7 +1,9 @@
 package kodlamaio.hrms.business.concretes;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,7 @@ import kodlamaio.hrms.entities.dtos.ResumeDto;
 public class ResumeManager implements ResumeService {
 
 	private ResumeDao resumeDao;
+	private ModelMapper modelMapper = new ModelMapper();
 
 	@Autowired
 	public ResumeManager(ResumeDao resumeDao) {
@@ -45,8 +48,15 @@ public class ResumeManager implements ResumeService {
 	}
 
 	
-	  @Override public DataResult<List<ResumeDto>> getByResumeDto() { return new
-	  SuccessDataResult<List<ResumeDto>>(this.resumeDao.getByResumeDto()); }
+	  @Override public DataResult<List<ResumeDto>> getByResumeDto() { 
+		  
+		  List<Resume> resumes = this.resumeDao.findAll();
+		  
+		  List<ResumeDto> resumeDtos = resumes.stream().map(resume -> modelMapper.map(resume, ResumeDto.class)).collect(Collectors.toList());
+		  
+		  
+		  return new SuccessDataResult<List<ResumeDto>>(resumeDtos);
+	  }
 	  
 	 
 

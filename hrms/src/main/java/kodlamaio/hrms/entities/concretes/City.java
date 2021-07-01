@@ -30,8 +30,8 @@ public class City {
 	@Column(name = "id")
 	private int id;
 
-	@Column(name = "name")
-	private String name;
+	@Column(name = "city_name")
+	private String cityName;
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "city")
