@@ -30,7 +30,7 @@ public class PhoneNumber {
 	 */
 
 	@ManyToOne
-	@JoinColumn(name = "employer_id", insertable = false, updatable = false)
+	@JoinColumn(name = "employer_id", nullable = false)
 	private Employer employer;
 
 	@Column(name = "phone_number")
