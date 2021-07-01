@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,6 +32,11 @@ public class JobSeekersController {
 	@PostMapping(value = "/add")
 	public Result add(@RequestBody JobSeeker jobSeeker) {
 		return this.service.add(jobSeeker);
+	}
+	
+	@GetMapping(value = "/getById")
+	public DataResult<JobSeeker> getById(@RequestParam int id) {
+		return this.service.getById(id);
 	}
 	
 	

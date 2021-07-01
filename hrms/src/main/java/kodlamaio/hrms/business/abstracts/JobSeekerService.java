@@ -10,6 +10,8 @@ public interface JobSeekerService {
 	
 	Result add(JobSeeker jobSeeker);
 	
+	DataResult<JobSeeker> getById(int id);
+	
 	DataResult<List<JobSeeker>> getAll();
 	
 	DataResult<JobSeeker> getByNationalityId(String nationalityId);

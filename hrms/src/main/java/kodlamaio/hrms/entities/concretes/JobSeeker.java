@@ -3,8 +3,10 @@ package kodlamaio.hrms.entities.concretes;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
@@ -41,11 +43,11 @@ public class JobSeeker extends User {
 	private String nationalityId;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "jobSeeker")
+	@OneToMany(mappedBy = "jobSeeker", targetEntity = Resume.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Resume> resumes;
 
 	@JsonIgnore
-	@OneToMany(mappedBy = "jobSeeker")
+	@OneToMany(mappedBy = "jobSeeker", targetEntity = Photo.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Photo> photos;
 
 }
