@@ -12,6 +12,7 @@ public interface ResumeDao extends JpaRepository<Resume, Integer> {
 	
 	List<Resume> getByJobSeekerId(int id);
 	// hata veriyor sebebi araştırılacak
+	
 	@Query(value = "SELECT * FROM resume_views", nativeQuery = true)
 	List<ResumeDto> getByResumeDto();
 

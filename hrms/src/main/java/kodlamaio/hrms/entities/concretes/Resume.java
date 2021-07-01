@@ -35,13 +35,13 @@ public class Resume {
 	private int id;
 	
 	@ManyToOne
-	@JoinColumn(name = "jobSeeker_id",insertable = false , updatable = false)
+	@JoinColumn(name = "jobSeeker_id", nullable = false)
 	private JobSeeker jobSeeker;
 	
 	@Column(name = "title")
 	private String title;
 	
-	@Column(name = "create_date", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+	@Column(name = "create_date", columnDefinition = "DATE")
 	private LocalDate createDate;
 	
 	@JsonIgnore
