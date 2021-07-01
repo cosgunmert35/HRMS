@@ -3,7 +3,9 @@ package kodlamaio.hrms.business.concretes;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.apache.catalina.mapper.Mapper;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.PropertyMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -66,12 +68,14 @@ public class JobAdvertisementManager implements JobAdvertisementService {
 	}
 
 	@Override
-	public Result deactiveJobAdvertisement(int id, int employerId) {
-//		JobAdvertisement jobAdds = this.advertisementDao.getByJobAdvertisement_Id(employerId);
-//		jobAdds.setActive(false);
-//		System.out.println(jobAdds);
-		//this.advertisementDao.save(jobAdds);
-		return new SuccessResult(id + "'li iş ilanı kapatıldı.");
+	public Result update(JobAdvertisementSaveDto advertisementSaveDto) {
+		modelMapper = new ModelMapper();
+		JobAdvertisement advertisement = modelMapper.map(advertisementSaveDto, JobAdvertisement.class);
+		
+		modelMapper.map(this.advertisementDao.save(advertisement), JobAdvertisementSaveDto.class);
+		
+		//JobAdvertisement
+		return new SuccessResult(advertisementSaveDto.getId() + "'li iş ilanı kapatıldı.");
 	}
 
 
@@ -80,11 +84,10 @@ public class JobAdvertisementManager implements JobAdvertisementService {
 		modelMapper = new ModelMapper();
 		
 		List<JobAdvertisement> advertisements = this.advertisementDao.findAll();
-		List<JobAdvertisementDetailDto> jobAdvertisementDetailDtos = advertisements.stream()
-				.map(advertisement -> modelMapper.map(advertisements, JobAdvertisementDetailDto.class))
-				.collect(Collectors.toList());
 		
-		return new SuccessDataResult<List<JobAdvertisementDetailDto>>(jobAdvertisementDetailDtos);
+		List<JobAdvertisementDetailDto> advertisementDetailDto =
+		advertisements.stream().map(advertisement -> modelMapper.map(advertisement, JobAdvertisementDetailDto.class)).collect(Collectors.toList());
+		return new SuccessDataResult<List<JobAdvertisementDetailDto>>(advertisementDetailDto);
 	}
 
 

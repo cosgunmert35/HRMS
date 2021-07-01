@@ -22,7 +22,7 @@ public interface JobAdvertisementService {
 	
 	DataResult<List<JobAdvertisement>> getByIsActiveAndEmployer_CompanyName(boolean isActive, String companyName);
 	
-	Result deactiveJobAdvertisement(int id, int employerId);
+	Result update(JobAdvertisementSaveDto advertisementSaveDto);
 	
 	DataResult<List<JobAdvertisementDetailDto>> getAllWithDto();
 }

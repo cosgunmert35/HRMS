@@ -13,10 +13,9 @@ import lombok.NoArgsConstructor;
 public class JobAdvertisementDetailDto {
 	private int id;
 	private Employer employer;
-	// private String companyName;
 	private String positionName;
 	private String description;
-	private String name;
+	private String cityName;
 	private double minimumSalary;
 	private double maximumSalary;
 	private int quota;

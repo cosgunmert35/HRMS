@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -61,9 +62,9 @@ public class JobAdvertisementsController {
 		return this.advertisementService.getByIsActiveAndEmployer_CompanyName(isActive, companyName);
 	}
 	
-	@PostMapping(value = "/deactiveJobAdvertisement")
-	public Result deactiveJobAdvertisement(@RequestParam(name = "id") int id, @RequestParam(name = "employerId") int employerId) {
-		 return this.advertisementService.deactiveJobAdvertisement(id, employerId);
+	@PutMapping(value = "/update")
+	public Result update(@RequestBody JobAdvertisementSaveDto advertisementSaveDto) {
+		 return this.advertisementService.update(advertisementSaveDto);
 	 }
 	
 	@GetMapping(value = "/getAllWithDto")
