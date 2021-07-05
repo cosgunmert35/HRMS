@@ -12,9 +12,9 @@ public interface JobAdvertisementService {
 	
 	Result add(JobAdvertisementSaveDto advertisementSaveDto);
 	
-	DataResult<List<JobAdvertisement>> getAll();
+	DataResult<List<JobAdvertisementDetailDto>> getAll();
 	
-	DataResult<JobAdvertisement> getByJobAdvertisement_Id(int id);
+	DataResult<JobAdvertisementDetailDto> getByJobAdvertisement_Id(int id);
 	
 	DataResult<List<JobAdvertisement>> getByIsActive(boolean isActive);
 	
@@ -24,5 +24,5 @@ public interface JobAdvertisementService {
 	
 	Result update(JobAdvertisementSaveDto advertisementSaveDto);
 	
-	DataResult<List<JobAdvertisementDetailDto>> getAllWithDto();
+	//DataResult<List<JobAdvertisementDetailDto>> getAllWithDto();
 }

@@ -2,7 +2,6 @@ package kodlamaio.hrms.entities.dtos;
 
 import java.time.LocalDate;
 
-import kodlamaio.hrms.entities.concretes.Employer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,8 +10,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class JobAdvertisementDetailDto {
+
 	private int id;
-	private Employer employer;
+	private String employerCompanyName;
 	private String positionName;
 	private String description;
 	private String cityName;

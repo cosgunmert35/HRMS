@@ -3,6 +3,7 @@ package kodlamaio.hrms.api.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -20,6 +21,7 @@ import kodlamaio.hrms.entities.dtos.JobAdvertisementSaveDto;
 
 @RestController
 @RequestMapping(value = "/api/jobAdvertisements")
+@CrossOrigin
 public class JobAdvertisementsController {
 
 	private JobAdvertisementService advertisementService;
@@ -37,12 +39,12 @@ public class JobAdvertisementsController {
 	}
 	
 	@GetMapping(value = "/getAll")
-	public DataResult<List<JobAdvertisement>> getAll() {
+	public DataResult<List<JobAdvertisementDetailDto>> getAll() {
 		return this.advertisementService.getAll();
 	}
 
 	@GetMapping(value = "/getById")
-	public DataResult<JobAdvertisement> getById(@RequestParam(name = "id") int id) {
+	public DataResult<JobAdvertisementDetailDto> getById(@RequestParam(name = "id") int id) {
 		return this.advertisementService.getByJobAdvertisement_Id(id);
 	}
 
@@ -66,10 +68,5 @@ public class JobAdvertisementsController {
 	public Result update(@RequestBody JobAdvertisementSaveDto advertisementSaveDto) {
 		 return this.advertisementService.update(advertisementSaveDto);
 	 }
-	
-	@GetMapping(value = "/getAllWithDto")
-	public DataResult<List<JobAdvertisementDetailDto>> getAllWithDto() {
-		return this.advertisementService.getAllWithDto();
-	}
 
 }
