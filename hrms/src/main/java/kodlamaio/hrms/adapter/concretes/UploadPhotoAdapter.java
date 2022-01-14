@@ -10,9 +10,9 @@ import com.cloudinary.utils.ObjectUtils;
 
 public class UploadPhotoAdapter implements UploadPhotoService {
 
-	private Cloudinary cloudinary = new Cloudinary(ObjectUtils.asMap("cloud_name", "mertcosgun", "api_key",
-			"986655851424968", "api_secret", "v2pX-CiKyjfxbOGQ2s4Kyq3BYJY", "secure", true));
-
+	
+	private Cloudinary cloudinary = new Cloudinary(ObjectUtils.asMap("cloud_name", "YourName", "api_key",
+	 		"YourApiKey", "api_secret", "YourApiSecret", "secure", true));
 	@Override
 	public String uploadPhoto(String photoPath) {
 		try {
